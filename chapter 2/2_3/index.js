@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import workingHours from "./data/workingHours.js";
+import operatingHours from "./data/operatingHours.js";
 import menuItems from "./data/menuItems.js";
 import ejs from "ejs";
 import fastifyView from "@fastify/view";
@@ -30,7 +30,7 @@ app.get("/hours", (req, reply) => {
     "saturday",
     "sunday",
   ];
-  reply.view("views/hours.ejs", { workingHours, days });
+  reply.view("views/hours.ejs", { operatingHours, days });
 });
 
 app.listen({ port: 3000 }, (err, address) => {
