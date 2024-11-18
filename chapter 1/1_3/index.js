@@ -1,7 +1,7 @@
 import { createObjectCsvWriter } from "csv-writer";
 import prompt from "prompt";
-prompt.message = "";
 
+prompt.message = "";
 prompt.start();
 
 const csvWriter = createObjectCsvWriter({
@@ -27,36 +27,24 @@ class Person {
       await csvWriter.writeRecords([{ name, number, email }]); // Await the async operation
       console.log(`${name} Saved!`);
     } catch (err) {
-      console.error(err);
+      console.error("Error saving contact:", err);
     }
   }
 }
 
 const startApp = async () => {
-  const person = new Person();
-  const responses = await prompt.get([
-    {
-      name: "name",
-      description: "Contact Name",
-    },
-    {
-      name: "number",
-      description: "Contact Number",
-    },
-    {
-      name: "email",
-      description: "Contact Email",
-    },
-  ]);
+  const questions = [
+    { name: "name", description: "Contact Name" },
+    { name: "number", description: "Contact Number" },
+    { name: "email", description: "Contact Email" },
+  ];
 
-  Object.assign(person, responses);
+  const responses = await prompt.get(questions);
+  const person = new Person(responses.name, responses.number, responses.email);
   await person.saveToCSV();
 
   const { again } = await prompt.get([
-    {
-      name: "again",
-      description: "Continue? [y to continue]",
-    },
+    { name: "again", description: "Continue? [y to continue]" },
   ]);
 
   if (again.toLowerCase() === "y") await startApp();

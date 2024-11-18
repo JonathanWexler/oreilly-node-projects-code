@@ -16,16 +16,11 @@ const readline = createInterface({
 /**
  * Wrap readline for async functionality
  */
-const readLineAsync = (message) => {
-  return new Promise((resolve) => {
-    readline.question(message, (answer) => {
-      resolve(answer);
-    });
-  });
-};
+const readLineAsync = (message) =>
+  new Promise((resolve) => readline.question(message, resolve));
 
 class Person {
-  constructor(name = "", number = "", email = "") {
+  constructor(name, number, email) {
     this.name = name;
     this.number = number;
     this.email = email;
@@ -42,16 +37,17 @@ class Person {
 }
 
 const startApp = async () => {
-  while (true) {
-    const person = new Person();
-    person.name = await readLineAsync("Contact Name: ");
-    person.number = await readLineAsync("Contact Number: ");
-    person.email = await readLineAsync("Contact Email: ");
+  let shouldContinue = true;
+  while (shouldContinue) {
+    const name = await readLineAsync("Contact Name: ");
+    const number = await readLineAsync("Contact Number: ");
+    const email = await readLineAsync("Contact Email: ");
 
+    const person = new Person(name, number, email);
     person.saveToCSV();
 
     const response = await readLineAsync("Continue? [y to continue]: ");
-    if (response.toLowerCase() !== "y") break;
+    shouldContinue = response.toLowerCase() === "y";
   }
   readline.close();
 };
