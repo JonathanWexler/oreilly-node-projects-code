@@ -5,26 +5,21 @@
     <title>Restaurant</title>
   </head>
   <body>
-    <!-- Page title -->
     <h1>Our Hours</h1>
-    <!-- JS loop through days array-->
-    <% for(let day of days){ %>
-    <!-- Assign the hours object for a given day-->
-    <% const hoursObj = workingHours[day] || workingHours['defaultHours']; %>
-    <!-- Display block with hours info -->
+    <% for (let day of days) { %>
+    <!-- prettier-ignore -->
+    <% const hoursObj = operatingHours[day] || operatingHours['defaultHours'] %>
     <section style="display: inline-flex; flex-direction: column; padding: 5px">
-      <!-- Day name -->
       <h2><%= day.toUpperCase() %></h2>
       <div>
-        <!-- Show hours or closed message -->
         <% if (hoursObj.open) {%>
         <p>Open: <%= hoursObj.open %></p>
         <p>Closed: <%= hoursObj.closed %></p>
-        <% } else {%>
+        <% } else { %>
         <p>CLOSED</p>
         <% } %>
       </div>
     </section>
-    <% }%>
+    <% } %>
   </body>
 </html>

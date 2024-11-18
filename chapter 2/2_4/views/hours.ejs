@@ -4,19 +4,15 @@
 
   <body>
     <main class="container">
-      <!-- Page title -->
       <h1>Our Hours</h1>
 
       <section>
         <div class="grid">
-          <!-- JS loop through days array-->
-          <% for(let day of days){ %>
-          <!-- Assign the hours object for a given day-->
-          <% const hoursObj = workingHours[day] || workingHours['defaultHours']
-          %>
+          <% for (let day of days) { %>
+          <!-- prettier-ignore -->
+          <% const hoursObj = operatingHours[day] || operatingHours['defaultHours'] %>
           <div>
             <h6><%= day.toUpperCase() %></h6>
-            <!-- Show hours or closed message -->
             <% if (hoursObj.open) {%>
             <p><strong>Open:</strong> <%= hoursObj.open %></p>
             <p><strong>Closed:</strong> <%= hoursObj.closed %></p>

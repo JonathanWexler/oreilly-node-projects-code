@@ -6,10 +6,10 @@ app.get("/", async (request, reply) => {
   return "Welcome to What's Fare is Fair!";
 });
 
-app.listen({ port }, (err, address) => {
+app.listen({ port }, (err) => {
   if (err) {
     app.log.error(err);
     process.exit(1);
   }
-  console.log(`Web Server is listening at ${address}`);
+  console.log(`Web Server is listening at http://localhost:${port}`);
 });

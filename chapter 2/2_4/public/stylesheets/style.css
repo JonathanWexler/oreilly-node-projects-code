@@ -51,7 +51,7 @@ body > nav + * {
 .hero {
   background-color: #394046;
   /* Image credit: https://pixabay.com/photos/vegetables-basket-vegetable-basket-752153/ */
-  background-image: url("/public/images/v1/vegetables-g215363030_1920.jpg");
+  background-image: url("/public/images/vegetables-g215363030_1920.jpg");
   background-position: center;
   background-size: cover;
 }

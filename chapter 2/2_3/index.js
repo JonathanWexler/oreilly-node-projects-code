@@ -5,6 +5,7 @@ import ejs from "ejs";
 import fastifyView from "@fastify/view";
 
 const app = Fastify();
+const port = 3000;
 
 app.register(fastifyView, {
   engine: {
@@ -33,7 +34,7 @@ app.get("/hours", (req, reply) => {
   reply.view("views/hours.ejs", { operatingHours, days });
 });
 
-app.listen({ port: 3000 }, (err, address) => {
+app.listen({ port }, (err) => {
   if (err) throw err;
-  console.log(`Server running at ${address}`);
+  console.log(`Web Server is listening at http://localhost:${port}`);
 });
