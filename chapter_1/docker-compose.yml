@@ -1,0 +1,19 @@
+services:
+  chapter1_1:
+    build: ./1_1
+    ports:
+      - "3001:3000"
+    stdin_open: true
+    tty: true
+  chapter1_2:
+    build: ./1_2
+    ports:
+      - "3002:3000"
+    stdin_open: true
+    tty: true
+  chapter1_3:
+    build: ./1_3
+    ports:
+      - "3003:3000"
+    stdin_open: true
+    tty: true
