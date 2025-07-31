@@ -1,0 +1,16 @@
+{
+  "name": "coffee_queue",
+  "version": "1.0.0",
+  "description": "JavaShipped Coffee Order Manager with Queuing",
+  "license": "ISC",
+  "author": "Jon Wexler",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^8.0.2",
+    "fastify": "^5.4.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "app_authentication",
+  "version": "1.0.0",
+  "description": "Login authentication Node app with Fastify and Passport.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0",
+    "@fastify/formbody": "^8.0.0",
+    "@fastify/view": "^10.0.0",
+    "handlebars": "^4.7.8",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-jwt": "^4.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "@fastify/cookie": "^10.0.0",
+    "@fastify/session": "^11.0.0",
+    "@fastify/passport": "^3.0.0"
+  },
+  "keywords": [
+    "authentication",
+    "fastify",
+    "passport",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC"
+}
